@@ -1,4 +1,4 @@
-# vue-wangeditor
+# vue-wangeditor-simple
 
 
 ## 介绍--这个是基于**wangEditor**写成的vue插件
@@ -15,7 +15,7 @@
 
 ```
 // main.js
-import VueWangeditor from 'vue-wangeditor'
+import VueWangeditor from 'vue-wangeditor-simple'
 Vue.use(VueWangeditor)
 ```
 ```
