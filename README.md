@@ -16,6 +16,7 @@
 ```
 // main.js
 import VueWangeditor from 'vue-wangeditor'
+Vue.use(VueWangeditor)
 ```
 ```
 // app.vue
