@@ -1,0 +1,20 @@
+{
+  "name": "vue-wangeditor",
+  "version": "1.0.0",
+  "description": "A vue plugin base on wangeditor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "wangeditor": "^3.0.3"
+  },
+  "keywords": [
+    "editor",
+    "wangeditor",
+    "vue",
+    "plugin"
+  ],
+  "author": "Weeken",
+  "license": "ISC"
+}
