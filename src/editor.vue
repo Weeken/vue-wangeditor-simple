@@ -1,5 +1,5 @@
 <template lang="html">
-  <div id="editor" :value="value" style="width: 100%; height: 100%;"></div>
+  <div id="editor"></div>
 </template>
 
 <script>
@@ -15,6 +15,7 @@ export default {
   },
   data () {
     return {
+      isInit: false,
       editor: {},
       content_: ''
     }
@@ -22,7 +23,15 @@ export default {
   watch: {
     content_ (val) {
       // return the content to parent component
-      this.$emit('input', this.content_)
+      this.$emit('input', val)
+    },
+    value (val) {
+      if (!this.isInit) {
+        // init content_
+        this.editor.txt.html(val)
+        this.isInit = true
+      }
+      this.content_ = val
     }
   },
   methods: {
@@ -45,14 +54,20 @@ export default {
 
     // create the editor
     this.editor.create()
-
-    // init props content
-    if (this.value) {
-      this.editor.txt.html(this.value)
-    }
   }
 }
 </script>
 
 <style lang="css">
+  .w-e-droplist{ z-index: 10010; }
+  .w-e-text-container .w-e-text h1{ font-size: 24px; margin: 22px 0; font-weight: bold; }
+  .w-e-text-container .w-e-text h2{ font-size: 22px; margin: 20px 0; font-weight: bold; }
+  .w-e-text-container .w-e-text h3{ font-size: 20px; margin: 18px 0; font-weight: bold; }
+  .w-e-text-container .w-e-text h4{ font-size: 18px; margin: 16px 0; font-weight: bold; }
+  .w-e-text-container .w-e-text h5{ font-size: 16px; margin: 14px 0; font-weight: bold; }
+
+  .w-e-text-container .w-e-text table th{ text-align: center; }
+  .w-e-text-container .w-e-text table td{ text-align: center; }
+
+  .w-e-text-container .w-e-text ul li { list-style-type: disc; }
 </style>
