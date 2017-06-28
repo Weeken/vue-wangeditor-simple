@@ -45,5 +45,5 @@ data () {
     }
   }
 ```
-####github:[https://github.com/Weeken/vue-wangeditor-simple](https://github.com/Weeken/vue-wangeditor-simple)
+#### github: [https://github.com/Weeken/vue-wangeditor-simple](https://github.com/Weeken/vue-wangeditor-simple)
 
