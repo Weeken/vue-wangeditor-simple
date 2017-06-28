@@ -21,11 +21,17 @@ Vue.use(VueWangeditor)
 ```
 // app.vue
 <div class="editor_wrap">
-    <vue-wangeditor :options="options" v-model="content"></vue-wangeditor>
+    <vue-wangeditor id="editor" :options="options" v-model="content"></vue-wangeditor>
+    <vue-wangeditor id="editor1" :options="options1" v-model="content1"></vue-wangeditor>
 </div>
 
 data () {
     return {
+      content1: '',
+      options1: {
+        width: 700,
+        height: 500
+      },
       content: '<p>edit here</p>',
       options: {
       width: 800, // 默认单位px

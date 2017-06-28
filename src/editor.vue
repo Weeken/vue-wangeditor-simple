@@ -1,5 +1,5 @@
 <template lang="html">
-  <div id="editor"></div>
+  <div :id="id"></div>
 </template>
 
 <script>
@@ -11,6 +11,7 @@ export default {
       type: Object,
       default:  _ => { return {} }
     },
+    id: String,
     value: String
   },
   data () {
@@ -40,7 +41,7 @@ export default {
     }
   },
   mounted () {
-    this.editor = new E('#editor')
+    this.editor = new E('#' + this.id)
 
     // init change event
     this.editor.customConfig.onchange = html => {
@@ -55,8 +56,8 @@ export default {
     // create the editor
     this.editor.create()
 
-    let container = document.querySelector('.w-e-text-container')
-    let toolbar = document.querySelector('.w-e-toolbar')
+    let container = document.querySelector('#' + this.id + ' .w-e-text-container')
+    let toolbar = document.querySelector('#' + this.id + ' .w-e-toolbar')
     if (this.options.width) {
       container.style.width = this.options.width + 'px'
       toolbar.style.width = this.options.width + 'px'
