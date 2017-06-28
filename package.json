@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "git repository": "https://github.com/Weeken/vue-wangeditor",
-  "devDependencies": {
+  "git repository": "https://github.com/Weeken/vue-wangeditor-simple",
+  "Dependencies": {
     "wangeditor": "^3.0.3"
   },
   "keywords": [
