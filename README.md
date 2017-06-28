@@ -28,6 +28,8 @@ data () {
     return {
       content: '<p>edit here</p>',
       options: {
+      width: 800, // 默认单位px
+      height: 800, // 默认单位px
       // 更多配置项请看官网或者官网文档
         menus: [
           'head',  // 标题
