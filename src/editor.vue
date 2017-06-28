@@ -54,6 +54,16 @@ export default {
 
     // create the editor
     this.editor.create()
+
+    let container = document.querySelector('.w-e-text-container')
+    let toolbar = document.querySelector('.w-e-toolbar')
+    if (this.options.width) {
+      container.style.width = this.options.width + 'px'
+      toolbar.style.width = this.options.width + 'px'
+    }
+    if (this.options.height) {
+      container.style.height = this.options.height + 'px'
+    }
   }
 }
 </script>
