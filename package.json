@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "git repository": "https://github.com/Weeken/vue-wangeditor-simple",
+  "git repository": "https://github.com/Weeken/vue-wangeditor-simple.git",
   "Dependencies": {
     "wangeditor": "^3.0.3"
   },
@@ -17,5 +17,9 @@
     "plugin"
   ],
   "author": "Weeken",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Weeken/vue-wangeditor-simple/issues"
+  },
+  "homepage": "https://github.com/Weeken/vue-wangeditor-simple#readme"
 }

@@ -14,6 +14,11 @@
 ## How to use
 
 ```
+npm install vue-wangeditor-simple --save
+
+```
+
+```
 // main.js
 import VueWangeditor from 'vue-wangeditor-simple'
 Vue.use(VueWangeditor)
