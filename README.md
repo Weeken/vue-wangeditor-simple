@@ -1,7 +1,7 @@
 # vue-wangeditor-simple
 
 
-## 介绍--这个是基于**wangEditor**写成的vue插件
+## 介绍--这个是基于**wangeditor**写成的vue插件
 
 **wangEditor** —— 轻量级 web 富文本编辑器，配置方便，使用简单。支持 IE10+ 浏览器。
 
@@ -57,4 +57,3 @@ data () {
   }
 ```
 #### github: [https://github.com/Weeken/vue-wangeditor-simple](https://github.com/Weeken/vue-wangeditor-simple)
-
