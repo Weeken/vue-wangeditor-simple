@@ -1,14 +1,17 @@
 {
   "name": "vue-wangeditor-simple",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A vue plugin base on wangeditor",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "git repository": "https://github.com/Weeken/vue-wangeditor-simple.git",
   "dependencies": {
     "wangeditor": "^3.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Weeken/vue-wangeditor-simple.git"
   },
   "keywords": [
     "vue",
