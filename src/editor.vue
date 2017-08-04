@@ -71,6 +71,8 @@ export default {
 
 <style lang="css">
   .w-e-droplist{ z-index: 10010; }
+  .w-e-menu{ z-index: 10 !important; }
+  .w-e-text-container{ z-index: 9 !important; }
   .w-e-text-container .w-e-text h1{ font-size: 24px; margin: 22px 0; font-weight: bold; }
   .w-e-text-container .w-e-text h2{ font-size: 22px; margin: 20px 0; font-weight: bold; }
   .w-e-text-container .w-e-text h3{ font-size: 20px; margin: 18px 0; font-weight: bold; }
@@ -81,4 +83,7 @@ export default {
   .w-e-text-container .w-e-text table td{ text-align: center; }
 
   .w-e-text-container .w-e-text ul li { list-style-type: disc; }
+  .w-e-text-container .w-e-text ol li { list-style-type: decimal; }
+
+  .w-e-text-container .w-e-text b { font-weight: 800; }
 </style>
