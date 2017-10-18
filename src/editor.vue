@@ -18,13 +18,16 @@ export default {
     return {
       isInit: false,
       editor: {},
-      content_: ''
+      content_: '',
+      text: ''
     }
   },
   watch: {
     content_ (val) {
       // return the content to parent component
       this.$emit('input', val)
+      this.text = this.editor.txt.text()
+      this.$emit('update:text', this.text)
     },
     value (val) {
       if (!this.isInit) {

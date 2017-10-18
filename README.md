@@ -26,18 +26,20 @@ Vue.use(VueWangeditor)
 ```
 // app.vue
 <div class="editor_wrap">
-    <vue-wangeditor id="editor" :options="options" v-model="content"></vue-wangeditor>
-    <vue-wangeditor id="editor1" :options="options1" v-model="content1"></vue-wangeditor>
+    <vue-wangeditor id="editor" :options="options" v-model="content" :text.sync="text"></vue-wangeditor>
+    <vue-wangeditor id="editor1" :options="options1" v-model="content1" :text.sync="text1"></vue-wangeditor>
 </div>
 
 data () {
     return {
-      content1: '',
+      content1: '', // 包含html标签
+      text1: '', // 不含html标签，纯文本
       options1: {
         width: 700,
         height: 500
       },
       content: '<p>edit here</p>',
+      text: '',
       options: {
       width: 800, // 默认单位px
       height: 800, // 默认单位px
