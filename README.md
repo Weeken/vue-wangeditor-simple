@@ -4,6 +4,7 @@
 ## 介绍--这个是基于**wangeditor**写成的vue插件
 
 **wangEditor** —— 轻量级 web 富文本编辑器，配置方便，使用简单。支持IE8+浏览器。
+**暂时降级为v2版本的wangeditor**
 
 - 官网：[www.wangEditor.com](http://www.wangeditor.com/)
 - 文档：[http://www.kancloud.cn/wangfupeng/wangeditor2/113961](https://www.kancloud.cn/wangfupeng/wangeditor2/113961)
