@@ -3,10 +3,10 @@
 
 ## 介绍--这个是基于**wangeditor**写成的vue插件
 
-**wangEditor** —— 轻量级 web 富文本编辑器，配置方便，使用简单。支持 IE10+ 浏览器。
+**wangEditor** —— 轻量级 web 富文本编辑器，配置方便，使用简单。支持IE8+浏览器。
 
 - 官网：[www.wangEditor.com](http://www.wangeditor.com/)
-- 文档：[www.kancloud.cn/wangfupeng/wangeditor3/332599](http://www.kancloud.cn/wangfupeng/wangeditor3/332599)
+- 文档：[http://www.kancloud.cn/wangfupeng/wangeditor2/113961](https://www.kancloud.cn/wangfupeng/wangeditor2/113961)
 
 ![图片](http://images2015.cnblogs.com/blog/138012/201705/138012-20170530202905633-1840158981.png)
 
