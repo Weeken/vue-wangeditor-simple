@@ -1,4 +1,4 @@
-import VueWangeditor from './src/editor'
+import VueWangeditor from './src/editor.vue'
 
 /* istanbul ignore next */
 VueWangeditor.install = function (Vue) {

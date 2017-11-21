@@ -1,13 +1,13 @@
 {
   "name": "vue-wangeditor-simple",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "A vue plugin base on wangeditor",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "wangeditor": "2.1.23"
+    "wangeditor": "^3.0.3"
   },
   "repository": {
     "type": "git",
