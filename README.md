@@ -45,16 +45,57 @@ data () {
       height: 800, // 默认单位px
       // 更多配置项请看官网或者官网文档
         menus: [
-          'head',  // 标题
-          'bold',  // 粗体
-          'italic',  // 斜体
-          'underline',  // 下划线
+        width: '900px',
+      height: '500px',
+      menus: [
+        'head',  // 标题
+        'bold',  // 粗体
+        'italic',  // 斜体
+        'underline',  // 下划线
           ...
+        'table',  // 表格
+        'video',  // 插入视频
+        'code',  // 插入代码
+        'undo',  // 撤销
+        'redo',  // 重复
+        /* ---- 新增 ---- */
+        'clearStyle', //清除文字的样式
+        'fullscreen' // 全屏
+      ],
         ],
-        pasteText: true,
-        uploadImgServer: 'https://up-z2.qbox.me/',
+        pasteFilterStyle: true,  // 打开/关闭粘贴样式的过滤
+        // 自定义处理粘贴的文本内容
+        // pasteTextHandle (content) {
+        //   let isIE = 'ActiveXObject' in window
+        //   let styleReg = / style=\"(.*?)\"/g
+        //   let classReg = / class=\"(.*?)\"/g
+        //   let styleTagReg = /<style>[\s\S]*?<\/style>/g
+        //   return isIE ? content.replace(styleReg, '').replace(classReg, '').replace(styleTagReg, '') : content
+        // },
         ...
       }
     }
   }
 ```
+
+## 新增
+
+### clearStyle: 清除编辑器内所有文字的样式
+- 等同于粘贴样式的过滤的作用，去除标签内的style，class属性以及<style>标签
+
+- 文档里说 **以下配置暂时对 IE 无效** ，处理方法有两个：
+
+1、在配置里添加pasteTextHandle方法，然后再里面添加处理，如：
+```
+pasteTextHandle (content) {
+  let isIE = 'ActiveXObject' in window
+  let styleReg = / style=\"(.*?)\"/g
+  let classReg = / class=\"(.*?)\"/g
+  let styleTagReg = /<style>[\s\S]*?<\/style>/g
+  return isIE ? content.replace(styleReg, '').replace(classReg, '').replace(styleTagReg, '') : content
+},
+```
+
+2、就是在配置menus里添加 **clearStyle** ，复制进去后手动清楚样式
+
+### clearStyle: 全屏/退出全屏功能
