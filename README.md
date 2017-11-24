@@ -50,6 +50,7 @@ data () {
         'redo',  // 重复
         /* ---- 新增 ---- */
         'clearStyle', //清除文字的样式
+        'clearFormat', //清除文字的格式
         'fullscreen' // 全屏
       ],
         ],
@@ -62,23 +63,26 @@ data () {
 
 ## 新增
 
-### 1、clearStyle: 清除编辑器内所有文字的样式
+### 1、clearStyle: 清除编辑器内所有文字的样式（无法撤销undo）
 - 等同于粘贴样式的过滤的作用，去除标签内的style，class属性以及\<style>标签
-
 - 文档里说 **pasteFilterStyle配置暂时对 IE 无效** ，处理方法有两个：
 
-1) 在配置里添加pasteTextHandle方法，然后再里面添加处理，如：
+	1) 在配置里添加pasteTextHandle方法，然后再里面添加处理，如：
 
-```
-pasteTextHandle (content) {
-  let isIE = 'ActiveXObject' in window
-  let styleReg = / style=\"(.*?)\"/g
-  let classReg = / class=\"(.*?)\"/g
-  let styleTagReg = /<style>[\s\S]*?<\/style>/g
-  return isIE ? content.replace(styleReg, '').replace(classReg, '').replace(styleTagReg, '') : content
-},
-```
+	```
+	pasteTextHandle (content) {
+  		let isIE = 'ActiveXObject' in window
+  		let styleReg = / style=\"(.*?)\"/g
+  		let classReg = / class=\"(.*?)\"/g
+  		let styleTagReg = /<style>[\s\S]*?<\/style>/g
+  		return isIE ? content.replace(styleReg, '').replace(classReg, '').replace(styleTagReg, '') : content
+	},
+	```
 
-2) 就是在配置menus里添加 **clearStyle** ，复制进去后手动清除样式
+	2) 就是在配置menus里添加 **clearStyle** ，复制进去后手动清除样式
 
-### 2、clearStyle: 全屏/退出全屏功能
+### 2、clearFormat: 清除格式（无法撤销undo）
+- 这功能会把所有的文字格式化为正文，即把所有HTML标签替换为\<p>标签
+- 排版可能会有错乱（应该只是换行了而已）
+
+### 3、clearStyle: 全屏/退出全屏功能

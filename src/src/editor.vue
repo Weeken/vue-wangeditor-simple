@@ -6,11 +6,10 @@
 import E from 'wangeditor'
 import { fullscreen } from '../plugins/fullscreen'
 import { clearStyle } from '../plugins/clearStyle'
-// import {editorOptions} from './mixins/editor-option.js'
-// import '../plugins/fullscreen/wangEditor-fullscreen-plugin.css'
+import { clearFormat } from '../plugins/clearFormat'
 export default {
   name: 'VueWangeditor',
-  mixins: [fullscreen, clearStyle],
+  mixins: [fullscreen, clearStyle, clearFormat],
   props: {
     options: {
       type: Object,
@@ -64,7 +63,7 @@ export default {
     // create the editor
     this.editor.create()
 
-
+    // init size
     let container = document.querySelector('#' + this.id + ' .w-e-text-container')
     let toolbar = document.querySelector('#' + this.id + ' .w-e-toolbar')
     if (this.options.width) {
@@ -77,15 +76,24 @@ export default {
 
     // clearStyle
     if (this.options.menus.includes('clearStyle')) {
-      let clearFormatBtn = this.initClearStyle()
-      toolbar.appendChild(clearFormatBtn)
-      clearFormatBtn.addEventListener('click', _ => {
+      let clearStyleBtn = this.initClearStyle()
+      toolbar.appendChild(clearStyleBtn)
+      clearStyleBtn.addEventListener('click', _ => {
         let container = document.querySelector('#' + this.id + ' .w-e-text')
         let content = Array.from(container.getElementsByTagName('*'))
         content.map(item => {
           this.clearStyle(item)
         })
-        this.setContent(container.innerHTML)
+      }, false)
+    }
+
+    // clearFormat
+    if (this.options.menus.includes('clearFormat')) {
+      let clearFormatBtn = this.initClearFormat()
+      toolbar.appendChild(clearFormatBtn)
+      clearFormatBtn.addEventListener('click', _ => {
+        let formatContent = this.clearFormat()
+        this.editor.txt.html(formatContent)
       }, false)
     }
 
@@ -108,7 +116,9 @@ export default {
 <style lang="css">
   @font-face {
     font-family: 'w-icon';
-    src: url('./fonts/icon.woff');
+    src: url('./fonts/icon.woff') format('woff'),
+         url('./fonts/icon.ttf') format('truetype'),
+         url('./fonts/icon.svg') format('svg');
     font-weight: normal;
     font-style: normal;
   }
@@ -125,6 +135,15 @@ export default {
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Enable Ligatures ================ */
+    letter-spacing: 0;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    font-feature-settings: "liga";
+    -webkit-font-variant-ligatures: discretionary-ligatures;
+    font-variant-ligatures: discretionary-ligatures;
   }
 
   .w-e-droplist{ z-index: 10010; }
@@ -149,15 +168,17 @@ export default {
   	-webkit-box-lines: multiple;
   }
 
-  .w-e-menu .w-icon-clearFormat:before {
-  	content: "\ea6f";
+  .w-icon-enlarge:before {
+    content: "\e989";
   }
-
-  .w-e-menu .w-icon-fullscreen:before {
-  	content: "\e98b";
+  .w-icon-shrink:before {
+    content: "\e98a";
   }
-  .w-e-menu .w-icon-emptyscreen:before {
-  	content: "\e98c";
+  .w-icon-filter:before {
+    content: "\ea5b";
+  }
+  .w-icon-clear-formatting:before {
+    content: "\ea6f";
   }
 
   .fullscreen-editor {
