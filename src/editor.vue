@@ -4,9 +4,9 @@
 
 <script>
 import E from 'wangeditor'
-import { fullscreen } from '../plugins/fullscreen'
-import { clearStyle } from '../plugins/clearStyle'
-import { clearFormat } from '../plugins/clearFormat'
+import { fullscreen } from './plugins/fullscreen'
+import { clearStyle } from './plugins/clearStyle'
+import { clearFormat } from './plugins/clearFormat'
 export default {
   name: 'VueWangeditor',
   mixins: [fullscreen, clearStyle, clearFormat],
@@ -63,7 +63,7 @@ export default {
     // create the editor
     this.editor.create()
 
-    // init size
+
     let container = document.querySelector('#' + this.id + ' .w-e-text-container')
     let toolbar = document.querySelector('#' + this.id + ' .w-e-toolbar')
     if (this.options.width) {
@@ -84,6 +84,7 @@ export default {
         content.map(item => {
           this.clearStyle(item)
         })
+        this.setContent(container.innerHTML)
       }, false)
     }
 
@@ -93,7 +94,8 @@ export default {
       toolbar.appendChild(clearFormatBtn)
       clearFormatBtn.addEventListener('click', _ => {
         let formatContent = this.clearFormat()
-        this.editor.txt.html(formatContent)
+        // this.editor.txt.html(formatContent)
+        this.setContent(formatContent)
       }, false)
     }
 
