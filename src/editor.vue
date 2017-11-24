@@ -94,8 +94,8 @@ export default {
       toolbar.appendChild(clearFormatBtn)
       clearFormatBtn.addEventListener('click', _ => {
         let formatContent = this.clearFormat()
-        // this.editor.txt.html(formatContent)
         this.setContent(formatContent)
+        this.editor.txt.html(formatContent)
       }, false)
     }
 
