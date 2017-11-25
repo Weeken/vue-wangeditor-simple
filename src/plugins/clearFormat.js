@@ -4,7 +4,7 @@ export const clearFormat = {
       let btn = document.createElement('div')
       btn.className = 'w-e-menu'
       btn.style.zIndex = '10001'
-      btn.innerHTML = '<i title="清除文字格式" class="w-icon-clear-formatting"></i>'
+      btn.innerHTML = '<i title="一键清除文字格式" class="w-icon-clear-formatting"></i>'
       return btn
     },
     clearFormat () {

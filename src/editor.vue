@@ -7,9 +7,10 @@ import E from 'wangeditor'
 import { fullscreen } from './plugins/fullscreen'
 import { clearStyle } from './plugins/clearStyle'
 import { clearFormat } from './plugins/clearFormat'
+import { clearAll } from './plugins/clearAll'
 export default {
   name: 'VueWangeditor',
-  mixins: [fullscreen, clearStyle, clearFormat],
+  mixins: [fullscreen, clearStyle, clearFormat, clearAll],
   props: {
     options: {
       type: Object,
@@ -79,12 +80,9 @@ export default {
       let clearStyleBtn = this.initClearStyle()
       toolbar.appendChild(clearStyleBtn)
       clearStyleBtn.addEventListener('click', _ => {
-        let container = document.querySelector('#' + this.id + ' .w-e-text')
-        let content = Array.from(container.getElementsByTagName('*'))
-        content.map(item => {
-          this.clearStyle(item)
-        })
-        this.setContent(container.innerHTML)
+        let html = this.clearStyle()
+        this.setContent(html)
+        this.editor.txt.html(html)
       }, false)
     }
 
@@ -96,6 +94,15 @@ export default {
         let formatContent = this.clearFormat()
         this.setContent(formatContent)
         this.editor.txt.html(formatContent)
+      }, false)
+    }
+
+    // clearAll
+    if (this.options.menus.includes('clearAll')) {
+      let clearAllBtn = this.initClearAll()
+      toolbar.appendChild(clearAllBtn)
+      clearAllBtn.addEventListener('click', _ => {
+        this.clearAll()
       }, false)
     }
 
@@ -118,9 +125,7 @@ export default {
 <style lang="css">
   @font-face {
     font-family: 'w-icon';
-    src: url('./fonts/icon.woff') format('woff'),
-         url('./fonts/icon.ttf') format('truetype'),
-         url('./fonts/icon.svg') format('svg');
+    src: url('./fonts/icon.woff') format('woff');
     font-weight: normal;
     font-style: normal;
   }
@@ -181,6 +186,9 @@ export default {
   }
   .w-icon-clear-formatting:before {
     content: "\ea6f";
+  }
+  .w-icon-file-empty:before {
+    content: "\e924";
   }
 
   .fullscreen-editor {
