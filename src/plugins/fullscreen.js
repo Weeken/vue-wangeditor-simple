@@ -1,18 +1,16 @@
 export const fullscreen = {
-  data () {
-    return {
-      fullscreen: false,
-      fullscreenInnerHTML: '<i title="全屏" class="w-icon-enlarge"></i>',
-      emptyscreenInnerHTML: '<i title="退出全屏" class="w-icon-shrink"></i>'
-    }
-  },
   methods: {
     initFullscreen () {
-      let btn = document.createElement('div')
-      btn.className = 'w-e-menu'
-      btn.style.zIndex = '10001'
-      btn.innerHTML = this.fullscreenInnerHTML
-      return btn
+      let enlarge = '<i title="全屏" class="w-icon-enlarge"></i>'
+      let shrink = '<i title="全屏" class="w-icon-shrink"></i>'
+      let isFullscreen = false
+      let fullscreenBtn = this.createBtn(enlarge)
+      this.toolbar.appendChild(fullscreenBtn)
+      fullscreenBtn.addEventListener('click', _ => {
+        this.editorEle.className = isFullscreen ? '' : 'fullscreen-editor'
+        fullscreenBtn.innerHTML = isFullscreen ? enlarge : shrink
+        isFullscreen = !isFullscreen
+      }, false)
     }
   }
 }

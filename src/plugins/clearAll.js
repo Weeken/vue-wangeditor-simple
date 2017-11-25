@@ -1,11 +1,11 @@
 export const clearAll = {
   methods: {
     initClearAll () {
-      let btn = document.createElement('div')
-      btn.className = 'w-e-menu'
-      btn.style.zIndex = '10001'
-      btn.innerHTML = '<i title="一键清空编辑器" class="w-icon-file-empty"></i>'
-      return btn
+      let clearAllBtn = this.createBtn('<i title="一键清空编辑器" class="w-icon-file-empty"></i>')
+      this.toolbar.appendChild(clearAllBtn)
+      clearAllBtn.addEventListener('click', _ => {
+        this.clearAll()
+      }, false)
     },
     clearAll () {
       this.editor.txt.clear()

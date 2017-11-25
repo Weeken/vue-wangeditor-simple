@@ -1,11 +1,13 @@
 export const clearStyle = {
   methods: {
     initClearStyle () {
-      let btn = document.createElement('div')
-      btn.className = 'w-e-menu'
-      btn.style.zIndex = '10001'
-      btn.innerHTML = '<i title="一键过滤文字样式" class="w-icon-filter"></i>'
-      return btn
+      let clearStyleBtn = this.createBtn('<i title="一键过滤文字样式" class="w-icon-filter"></i>')
+      this.toolbar.appendChild(clearStyleBtn)
+      clearStyleBtn.addEventListener('click', _ => {
+        let html = this.clearStyle()
+        this.setContent(html)
+        this.editor.txt.html(html)
+      }, false)
     },
     clearStyle () {
       // editor.txt.html()获取的内容无法清除<style>标签的样式

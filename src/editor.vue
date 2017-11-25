@@ -43,9 +43,42 @@ export default {
       this.content_ = val
     }
   },
+  computed: {
+    editorEle () {
+      if (document.querySelector(`#${this.id}`)) {
+        return document.querySelector(`#${this.id}`)
+      }
+    },
+    toolbar () {
+      if (document.querySelector(`#${this.id} .w-e-toolbar`)) {
+        return document.querySelector(`#${this.id} .w-e-toolbar`)
+      }
+    },
+    container () {
+      if (document.querySelector(`#${this.id} .w-e-text-container`)) {
+        return document.querySelector(`#${this.id} .w-e-text-container`)
+      }
+    }
+  },
   methods: {
     setContent (html) {
       this.content_ = html
+    },
+    createBtn (btnHtml) {
+      let btn = document.createElement('div')
+      btn.className = 'w-e-menu'
+      btn.style.zIndex = '10001'
+      btn.innerHTML = btnHtml
+      return btn
+    },
+    initSize () {
+      if (this.options.width) {
+        this.container.style.width = this.options.width
+        this.toolbar.style.width = this.options.width
+      }
+      if (this.options.height) {
+        this.container.style.height = this.options.height
+      }
     }
   },
   mounted () {
@@ -64,58 +97,26 @@ export default {
     // create the editor
     this.editor.create()
 
-
-    let container = document.querySelector('#' + this.id + ' .w-e-text-container')
-    let toolbar = document.querySelector('#' + this.id + ' .w-e-toolbar')
-    if (this.options.width) {
-      container.style.width = this.options.width
-      toolbar.style.width = this.options.width
-    }
-    if (this.options.height) {
-      container.style.height = this.options.height
-    }
+    this.initSize()
 
     // clearStyle
     if (this.options.menus.includes('clearStyle')) {
-      let clearStyleBtn = this.initClearStyle()
-      toolbar.appendChild(clearStyleBtn)
-      clearStyleBtn.addEventListener('click', _ => {
-        let html = this.clearStyle()
-        this.setContent(html)
-        this.editor.txt.html(html)
-      }, false)
+      this.initClearStyle()
     }
 
     // clearFormat
     if (this.options.menus.includes('clearFormat')) {
-      let clearFormatBtn = this.initClearFormat()
-      toolbar.appendChild(clearFormatBtn)
-      clearFormatBtn.addEventListener('click', _ => {
-        let formatContent = this.clearFormat()
-        this.setContent(formatContent)
-        this.editor.txt.html(formatContent)
-      }, false)
+      this.initClearFormat()
     }
 
     // clearAll
     if (this.options.menus.includes('clearAll')) {
-      let clearAllBtn = this.initClearAll()
-      toolbar.appendChild(clearAllBtn)
-      clearAllBtn.addEventListener('click', _ => {
-        this.clearAll()
-      }, false)
+      this.initClearAll()
     }
 
     // fullscreen
     if (this.options.menus.includes('fullscreen')) {
-      let editorEle = document.querySelector('#' + this.id)
-      let fullscreenBtn = this.initFullscreen()
-      toolbar.appendChild(fullscreenBtn)
-      fullscreenBtn.addEventListener('click', _ => {
-        editorEle.className = this.fullscreen ? '' : 'fullscreen-editor'
-        fullscreenBtn.innerHTML = this.fullscreen ? this.fullscreenInnerHTML : this.emptyscreenInnerHTML
-        this.fullscreen = !this.fullscreen
-      }, false)
+      this.initFullscreen()
     }
 
   }
