@@ -9,7 +9,7 @@
 - 文档：[https://www.kancloud.cn/wangfupeng/wangeditor3/332599](https://www.kancloud.cn/wangfupeng/wangeditor3/332599)
 
 
-## How to use
+## 安装及使用
 
 ```
 npm install vue-wangeditor-simple --save
@@ -66,27 +66,17 @@ data () {
 
 ### 1、clearStyle: 清除编辑器内所有文字的样式（无法撤销）
 - 等同于粘贴样式的过滤的作用，去除标签内的style，class属性以及\<style>标签
-- 文档里说 **pasteFilterStyle配置暂时对 IE 无效** ，处理方法有两个：
+- 文档里说 **pasteFilterStyle，pasteTextHandle配置暂时对 IE 无效** ，可以在配置menus里添加 **clearStyle** ，复制进去后手动清除样式，可以清除word文档复制过来的样式（在IE已测试）。
+- 若有清除不了的，请报issues。
 
-	1) 在配置里添加pasteTextHandle方法，然后再里面添加处理，如：
-
-	```
-	pasteTextHandle (content) {
-  		let isIE = 'ActiveXObject' in window
-  		let styleReg = / style=\"(.*?)\"/g
-  		let classReg = / class=\"(.*?)\"/g
-  		let styleTagReg = /<style>[\s\S]*?<\/style>/g
-  		return isIE ? content.replace(styleReg, '').replace(classReg, '').replace(styleTagReg, '') : content
-	},
-	```
-
-	2) 就是在配置menus里添加 **clearStyle** ，复制进去后手动清除样式
 
 ### 2、clearFormat: 清除格式（无法撤销）
 - 这功能会把所有的文字格式化为正文，即把所有HTML标签替换为\<p>标签
-- 排版可能会有错乱（应该只是换行了而已）
+- 排版可能会有错乱（应该只是换行了而已），请自行调整
 
 ### 3、clearAll: 一键清空编辑器功能
 - 一键清空编辑器的所有内容
 
 ### 4、fullscreen: 全屏/退出全屏功能
+
+#### 欢迎前来[star](https://github.com/Weeken/vue-wangeditor-simple)或[issues](https://github.com/Weeken/vue-wangeditor-simple/issues)

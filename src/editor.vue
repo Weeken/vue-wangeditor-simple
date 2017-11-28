@@ -59,6 +59,11 @@ export default {
       if (document.querySelector(`#${this.id} .w-e-text-container`)) {
         return document.querySelector(`#${this.id} .w-e-text-container`)
       }
+    },
+    textWrap () {
+      if (document.querySelector(`#${this.id} .w-e-text`)) {
+        return document.querySelector(`#${this.id} .w-e-text`)
+      }
     }
   },
   methods: {
