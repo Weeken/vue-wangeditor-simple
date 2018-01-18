@@ -106,22 +106,22 @@ export default {
     this.initSize()
 
     // clearStyle
-    if (this.options.menus.includes('clearStyle')) {
+    if (this.options.menus && this.options.menus.includes('clearStyle')) {
       this.initClearStyle()
     }
 
     // clearFormat
-    if (this.options.menus.includes('clearFormat')) {
+    if (this.options.menus && this.options.menus.includes('clearFormat')) {
       this.initClearFormat()
     }
 
     // clearAll
-    if (this.options.menus.includes('clearAll')) {
+    if (this.options.menus && this.options.menus.includes('clearAll')) {
       this.initClearAll()
     }
 
     // fullscreen
-    if (this.options.menus.includes('fullscreen')) {
+    if (this.options.menus && this.options.menus.includes('fullscreen')) {
       this.initFullscreen()
     }
 
