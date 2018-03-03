@@ -52,6 +52,8 @@ data () {
         'clearStyle', //清除文字的样式
         'clearFormat', //清除文字的格式
         'clearAll', //一键清空编辑器
+        'insertCode', //插入带类名的代码
+                      // <pre><code class="className">hellow world</code></pre>
         'fullscreen' // 全屏
       ],
         ],
