@@ -9,9 +9,10 @@ import { fullscreen } from './plugins/fullscreen'
 import { clearStyle } from './plugins/clearStyle'
 import { clearFormat } from './plugins/clearFormat'
 import { clearAll } from './plugins/clearAll'
+import { insertCode } from './plugins/insertCode'
 export default {
   name: 'VueWangeditor',
-  mixins: [fullscreen, clearStyle, clearFormat, clearAll],
+  mixins: [fullscreen, clearStyle, clearFormat, clearAll, insertCode],
   props: {
     options: {
       type: Object,
@@ -118,6 +119,11 @@ export default {
     // clearAll
     if (this.options.menus && this.options.menus.includes('clearAll')) {
       this.initClearAll()
+    }
+
+    // insertCode
+    if (this.options.menus && this.options.menus.includes('insertCode')) {
+      this.initInsertCode()
     }
 
     // fullscreen
