@@ -7,6 +7,7 @@ import replace from 'rollup-plugin-replace';
 import uglify from 'rollup-plugin-uglify';
 import postcss from 'rollup-plugin-postcss';
 import vue from 'rollup-plugin-vue';
+import url from "rollup-plugin-url"
 
 // PostCSS plugins
 import simplevars from 'postcss-simple-vars';
@@ -26,7 +27,7 @@ export default {
     // Rollup 支持多种输出格式。
     // 因为我们在浏览器中运行，我们希望使用立即调用的函数表达式(immediately-invoked function expression,IIFE)。
     // 关于其他的 format 选项以及什么场合你可能会需要它们，可以参考 Rollup’s wiki
-    format: 'cjs',
+    format: 'umd',
     name: 'main'
   },
 
@@ -71,6 +72,11 @@ export default {
         */
       ],
       extensions: [ '.css' ],
+    }),
+    url({
+      limit: 10 * 1024, // inline files < 10k, copy files > 10k
+      include: ["**/*.svg","**/*.png","**/*.jpg","**/*.gif"], // defaults to .svg, .png, .jpg and .gif files
+      emitFiles: true // defaults to true
     }),
     resolve({
       jsnext: true,   // 指定将 Node 包转换为 ES2015 模块
