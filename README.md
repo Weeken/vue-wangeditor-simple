@@ -53,7 +53,7 @@ data () {
         'clearFormat', //清除文字的格式
         'clearAll', //一键清空编辑器
         'insertCode', //插入带类名的代码
-                      // <pre><code class="className">hellow world</code></pre>
+        // <pre class="className"><code class="className">hellow world</code></pre>
         'fullscreen' // 全屏
       ],
         ],
@@ -83,7 +83,7 @@ data () {
 
 ### 5、insertCode: 插入带类名的代码
 ```
-  <pre><code class="className">hellow world</code></pre>
+  <pre class="className"><code class="className">hellow world</code></pre>
 ```
 为了方便在网页中使用插件(prismjs)来显示代码高亮
 

@@ -73,7 +73,7 @@ export const insertCode = {
       return html.replace(/</gm, '&lt;').replace(/>/gm, '&gt;').replace(/"/gm, '&quot;')
     },
     insertCode (className, code) {
-      this.editor.cmd.do('insertHTML', `<pre><code class="${className}">${this.replaceHtmlSymbol(code)}</code></pre><p><br></p>`)
+      this.editor.cmd.do('insertHTML', `<pre class="${className}"><code class="${className}">${this.replaceHtmlSymbol(code)}</code></pre><p><br></p>`)
     }
   }
 }
