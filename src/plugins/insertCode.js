@@ -31,8 +31,12 @@ export const insertCode = {
         if (input.value && textarea.value) {
           this.insertCode(input.value, textarea.value)
           pannel.style.display = 'none'
+          input.value = ''
+          textarea.value = ''
         } else {
           pannel.style.display = 'none'
+          input.value = ''
+          textarea.value = ''
         }
       }, false)
     },
@@ -62,8 +66,14 @@ export const insertCode = {
       this.container.appendChild(pannel)
       pannel.style.display = 'block'
     },
+    replaceHtmlSymbol(html) {
+      if (html == null) {
+        return ''
+      }
+      return html.replace(/</gm, '&lt;').replace(/>/gm, '&gt;').replace(/"/gm, '&quot;')
+    },
     insertCode (className, code) {
-      this.editor.cmd.do('insertHTML', `<pre><code class="${className}">${code}</code></pre><p><br></p>`)
+      this.editor.cmd.do('insertHTML', `<pre><code class="${className}">${this.replaceHtmlSymbol(code)}</code></pre><p><br></p>`)
     }
   }
 }

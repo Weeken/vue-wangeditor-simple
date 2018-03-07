@@ -81,10 +81,10 @@ data () {
 
 ### 4、fullscreen: 全屏/退出全屏功能
 
-### insertCode: 插入带类名的代码
+### 5、insertCode: 插入带类名的代码
 ```
   <pre><code class="className">hellow world</code></pre>
 ```
-为了方便在网页中使用插件来显示代码高亮
+为了方便在网页中使用插件(prismjs)来显示代码高亮
 
 #### 欢迎前来[star](https://github.com/Weeken/vue-wangeditor-simple)或[issues](https://github.com/Weeken/vue-wangeditor-simple/issues)
