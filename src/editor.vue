@@ -32,12 +32,12 @@ export default {
   watch: {
     content_ (val) {
       // return the content to parent component
-      this.$emit('input', val)
-      this.text = this.editor.txt.text()
-      this.$emit('update:text', this.text)
       if (val === '' || '<p><br></p>') {
         this.editor.txt.html(val)
       }
+      this.$emit('input', val)
+      this.text = this.editor.txt.text()
+      this.$emit('update:text', this.text)
     },
     value (val) {
       if (!this.isInit) {
