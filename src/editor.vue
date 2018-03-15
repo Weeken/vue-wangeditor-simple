@@ -35,6 +35,9 @@ export default {
       this.$emit('input', val)
       this.text = this.editor.txt.text()
       this.$emit('update:text', this.text)
+      if (val === '' || '<p><br></p>') {
+        this.editor.txt.html(val)
+      }
     },
     value (val) {
       if (!this.isInit) {

@@ -44,6 +44,7 @@
 .w-e-text-container .w-e-text ol li { list-style-type: decimal; }
 
 .w-e-text-container .w-e-text b { font-weight: 800; }
+.w-e-text-container .w-e-text a { color: #2196f3; text-decoration: underline; }
 
 .w-e-toolbar {
   flex-wrap: wrap;
