@@ -87,7 +87,7 @@ export default {
     // init change event
     this.editor.customConfig.onchange = html => {
       this.content_ = html
-      this.$emit('input', val)
+      this.$emit('input', html)
       this.$emit('update:text', this.editor.txt.text())
     }
 
