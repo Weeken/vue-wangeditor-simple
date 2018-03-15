@@ -25,27 +25,17 @@ export default {
     return {
       isInit: false,
       editor: {},
-      content_: '',
-      text: ''
+      content_: ''
     }
   },
   watch: {
-    content_ (val) {
-      // return the content to parent component
-      if (val === '' || '<p><br></p>') {
-        this.editor.txt.html(val)
-      }
-      this.$emit('input', val)
-      this.text = this.editor.txt.text()
-      this.$emit('update:text', this.text)
-    },
     value (val) {
-      if (!this.isInit) {
-        // init content_
-        this.editor.txt.html(val)
-        this.isInit = true
-      }
-      this.content_ = val
+      // if (!this.isInit) {
+      //   // init content_
+      //   this.editor.txt.html(val)
+      //   this.isInit = true
+      // }
+      this.editor.txt.html(val)
     }
   },
   computed: {
@@ -96,7 +86,9 @@ export default {
 
     // init change event
     this.editor.customConfig.onchange = html => {
-      this.setContent(html)
+      this.content_ = html
+      this.$emit('input', val)
+      this.$emit('update:text', this.editor.txt.text())
     }
 
     // init props options
