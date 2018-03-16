@@ -25,6 +25,7 @@ export const insertCode = {
         e.stopPropagation()
         pannel.style.display = 'none'
         input.value = ''
+        textarea.value = ''
       }, false)
       submit.addEventListener('click', e => {
         e.stopPropagation()
