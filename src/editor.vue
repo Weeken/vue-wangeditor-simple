@@ -19,23 +19,18 @@ export default {
       default:  _ => { return {} }
     },
     id: String,
+    initContent: String,
     value: String
   },
   data () {
     return {
-      isInit: false,
-      editor: {},
-      content_: ''
+      editor: {}
     }
   },
   watch: {
-    value (val) {
-      // if (!this.isInit) {
-      //   // init content_
-      //   this.editor.txt.html(val)
-      //   this.isInit = true
-      // }
+    initContent (val) {
       this.editor.txt.html(val)
+      this.$emit('input', val)
     }
   },
   computed: {
@@ -61,9 +56,6 @@ export default {
     }
   },
   methods: {
-    setContent (html) {
-      this.content_ = html
-    },
     createBtn (btnHtml) {
       let btn = document.createElement('div')
       btn.className = 'w-e-menu'
@@ -86,7 +78,6 @@ export default {
 
     // init change event
     this.editor.customConfig.onchange = html => {
-      this.content_ = html
       this.$emit('input', html)
       this.$emit('update:text', this.editor.txt.text())
     }

@@ -20,12 +20,13 @@ Vue.use(VueWangeditor)
 
 // app.vue
 <div class="editor_wrap">
-    <vue-wangeditor id="editor" :options="options" v-model="content" :text.sync="text"></vue-wangeditor>
+    <vue-wangeditor id="editor" :options="options" v-model="content" :init-content="initContent" :text.sync="text"></vue-wangeditor>
     <vue-wangeditor id="editor1" :options="options1" v-model="content1" :text.sync="text1"></vue-wangeditor>
 </div>
 
 data () {
     return {
+      initContent: '<p>要初始化的内容</p>'
       content1: '', // 包含html标签
       text1: '', // 不含html标签，纯文本
       options1: {
@@ -63,6 +64,11 @@ data () {
     }
   }
 ```
+
+## 优化
+
+- props 新增```init-content```，传入要初始化的内容
+- 由于之前版本都是检测v-model的变化，会影响输入，故将两者分开。
 
 ## 新增
 
