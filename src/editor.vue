@@ -31,6 +31,7 @@ export default {
     initContent (val) {
       this.editor.txt.html(val)
       this.$emit('input', val)
+      this.$emit('update:text', this.editor.txt.text())
     }
   },
   computed: {
