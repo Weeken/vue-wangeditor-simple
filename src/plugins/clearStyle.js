@@ -5,7 +5,7 @@ export const clearStyle = {
       this.toolbar.appendChild(clearStyleBtn)
       clearStyleBtn.addEventListener('click', _ => {
         let html = this.clearStyle()
-        this.setContent(html)
+        this.editor.cmd.do('insertHTML', html)
         this.editor.txt.html(html)
       }, false)
     },

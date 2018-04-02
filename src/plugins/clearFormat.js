@@ -1,7 +1,7 @@
 export const clearFormat = {
   methods: {
     clearFormat () {
-      let str = this.content_
+      let str = this.editor.txt.html()
       let arr = str.split(/(<[^>]*>([\s\S]*?)|<[^>]*><\/[^>]*>)/)
 
       // 去除空字符串，结束标签
@@ -21,7 +21,7 @@ export const clearFormat = {
       this.toolbar.appendChild(clearFormatBtn)
       clearFormatBtn.addEventListener('click', _ => {
         let formatContent = this.clearFormat()
-        this.setContent(formatContent)
+        this.$emit('input', formatContent)
         this.editor.txt.html(formatContent)
       }, false)
     }

@@ -9,7 +9,7 @@ export const clearAll = {
     },
     clearAll () {
       this.editor.txt.clear()
-      this.setContent('<p><br></p>')
+      this.editor.cmd.do('insertHTML', '<p><br></p>')
     }
   }
 }
