@@ -20,7 +20,7 @@ Vue.use(VueWangeditor)
 
 // app.vue
 <div class="editor_wrap">
-    <vue-wangeditor id="editor" :options="options" v-model="content" :init-content="initContent" :text.sync="text"></vue-wangeditor>
+    <vue-wangeditor id="editor" :options="options" v-model="content" :init-content="initContent" :text.sync="text" :disabled="true"></vue-wangeditor>
     <vue-wangeditor id="editor1" :options="options1" v-model="content1" :text.sync="text1"></vue-wangeditor>
 </div>
 
@@ -69,6 +69,11 @@ data () {
 
 - props 新增```init-content```，传入要初始化的内容
 - 由于之前版本都是检测v-model的变化，会影响输入，故将两者分开。
+
+
+
+- 2018-11-11 update：
+- props 新增```disabled```，控制编辑器的可编辑状态（Merge pull request #12 from yakii9/dsw）
 
 ## 新增
 
