@@ -20,7 +20,8 @@ export default {
     },
     id: String,
     initContent: String,
-    value: String
+    value: String,
+    disabled: Boolean
   },
   data () {
     return {
@@ -32,6 +33,9 @@ export default {
       this.editor.txt.html(val)
       this.$emit('input', val)
       this.$emit('update:text', this.editor.txt.text())
+    },
+    disabled (val) {
+      this.editor.$textElem.attr('contenteditable', !val)
     }
   },
   computed: {
@@ -118,6 +122,7 @@ export default {
       this.initFullscreen()
     }
 
+    this.editor.$textElem.attr('contenteditable', !this.disabled)
   }
 }
 </script>
