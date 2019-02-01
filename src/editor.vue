@@ -20,7 +20,6 @@ export default {
     },
     id: String,
     initContent: String,
-    value: String,
     disabled: Boolean
   },
   data () {
@@ -94,6 +93,8 @@ export default {
 
     // create the editor
     this.editor.create()
+  
+    this.initContent && this.editor.txt.html(this.initContent)
 
     this.initSize()
 
