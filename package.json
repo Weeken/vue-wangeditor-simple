@@ -1,6 +1,6 @@
 {
   "name": "vue-wangeditor-simple",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "A vue plugin base on wangeditor 3.0",
   "main": "dist/vue-wangeditor-simple.js",
   "scripts": {
