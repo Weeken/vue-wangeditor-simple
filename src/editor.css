@@ -105,7 +105,7 @@
   overflow: hidden;
 }
 
-.code_pannel #closePannel{
+.code_pannel .closePannel{
   position: absolute;
   top: 10px;
   right: 10px;
@@ -114,7 +114,7 @@
   color: #999;
   cursor: pointer;
 }
-.code_pannel #closePannel:hover{
+.code_pannel .closePannel:hover{
   color: #000;
 }
 
@@ -127,7 +127,7 @@
   border-bottom: 1px solid #f1f1f1;
 }
 
-.code_pannel #pannelInput{
+.code_pannel .pannelInput{
   width: 100%;
   height: 30px;
   margin-top: 5px;
@@ -140,7 +140,7 @@
   line-height: 30px;
 }
 
-.code_pannel #pannelTextarea{
+.code_pannel .pannelTextarea{
   width: 100%;
   height: 145px;
   margin-top: 10px;
@@ -151,11 +151,11 @@
   font-size: 14px;
   line-height: 20px;
 }
-.code_pannel #pannelInput:focus,.code_pannel #pannelTextarea:focus{
+.code_pannel .pannelInput:focus,.code_pannel .pannelTextarea:focus{
   border-color: #1e88e5;
 }
 
-.code_pannel #pannelSubmit{
+.code_pannel .pannelSubmit{
   float: right;
   font-size: 14px;
   color: #1e88e5;
@@ -167,6 +167,6 @@
   margin: 5px 0;
 }
 
-.code_pannel #pannelSubmit:hover{
+.code_pannel .pannelSubmit:hover{
   background: #f1f1f1;
 }

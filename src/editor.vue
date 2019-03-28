@@ -70,7 +70,7 @@ export default {
     createBtn (btnHtml) {
       let btn = document.createElement('div')
       btn.className = 'w-e-menu'
-      btn.style.zIndex = '10001'
+      // btn.style.zIndex = '10001'
       btn.innerHTML = btnHtml
       return btn
     },
