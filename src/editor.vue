@@ -58,6 +58,11 @@ export default {
       if (document.querySelector(`#${this.id} .w-e-text`)) {
         return document.querySelector(`#${this.id} .w-e-text`)
       }
+    },
+    menuBtns () {
+      if (document.querySelectorAll(`#${this.id} .w-e-menu`)) {
+        return document.querySelectorAll(`#${this.id} .w-e-menu`)
+      }
     }
   },
   methods: {
@@ -125,6 +130,14 @@ export default {
     }
 
     this.editor.$textElem.attr('contenteditable', !this.disabled)
+
+    // position: relative + z-index => 导致了子元素的层级无法超过父元素的兄弟元素，故去掉
+    // bug #14
+    if (this.menuBtns.length > 0) {
+      Array.from(this.menuBtns).map(btn => {
+        if (btn.getAttribute('style')) btn.removeAttribute('style')
+      })
+    }
   }
 }
 </script>
