@@ -1,0 +1,8 @@
+.*
+node_modules/
+src/
+test/
+gulpfile.js
+index.html
+webpack.config.js
+yarn.lock
