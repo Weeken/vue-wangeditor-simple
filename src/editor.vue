@@ -32,7 +32,8 @@ export default {
     initContent (val) {
       this.editor.txt.html(val)
       this.$emit('input', val)
-      this.$emit('update:text', this.editor.txt.text())
+      // this.$emit('update:text', this.editor.txt.text())
+      this.$emit('get-text', this.editor.txt.text())
     },
     disabled (val) {
       this.editor.$textElem.attr('contenteditable', !val)
@@ -81,6 +82,19 @@ export default {
       if (this.options.height) {
         this.container.style.height = this.options.height
       }
+    },
+    fixedCss () {
+      // position: relative + z-index => 导致了子元素的层级无法超过父元素的兄弟元素，故去掉
+      // bug #14
+      if (this.menuBtns.length > 0) {
+        Array.from(this.menuBtns).map(btn => {
+          if (btn.getAttribute('style')) btn.removeAttribute('style')
+        })
+      }
+      // container有同样的问题
+      let cssText = this.container.getAttribute('style')
+      cssText = cssText.replace('z-index', 'zIndex')
+      this.container.style.cssText = cssText
     }
   },
   mounted () {
@@ -103,6 +117,7 @@ export default {
     this.initContent && this.editor.txt.html(this.initContent)
 
     this.initSize()
+    this.fixedCss()
 
     // clearStyle
     if (this.options.menus && this.options.menus.includes('clearStyle')) {
@@ -130,14 +145,6 @@ export default {
     }
 
     this.editor.$textElem.attr('contenteditable', !this.disabled)
-
-    // position: relative + z-index => 导致了子元素的层级无法超过父元素的兄弟元素，故去掉
-    // bug #14
-    if (this.menuBtns.length > 0) {
-      Array.from(this.menuBtns).map(btn => {
-        if (btn.getAttribute('style')) btn.removeAttribute('style')
-      })
-    }
   }
 }
 </script>

@@ -46,6 +46,9 @@
 .w-e-text-container .w-e-text b { font-weight: 800; }
 .w-e-text-container .w-e-text a { color: #2196f3; text-decoration: underline; }
 
+/*修复panel在第二个编辑器内容的地步*/
+.w-e-text-container .w-e-panel-container{ z-index: 10; }
+
 .w-e-toolbar {
   flex-wrap: wrap;
   -webkit-box-lines: multiple;

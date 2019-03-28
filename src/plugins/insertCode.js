@@ -6,7 +6,7 @@ export const insertCode = {
       insertCodeBtn.addEventListener('click', e => {
         e.stopPropagation()
         e.preventDefault()
-        let pannel = document.querySelector('#codePannel')
+        let pannel = document.querySelector(`#${this.id}_codePannel`)
         if (!pannel) {
           this.createPannel()
         } else {
@@ -16,11 +16,11 @@ export const insertCode = {
       }, false)
     },
     bindEvents () {
-      let pannel = document.querySelector('#codePannel')
-      let close = document.querySelector('#closePannel')
-      let input = document.querySelector('#pannelInput')
-      let textarea = document.querySelector('#pannelTextarea')
-      let submit = document.querySelector('#pannelSubmit')
+      let pannel = document.querySelector(`#${this.id}_codePannel`)
+      let close = document.querySelector(`#${this.id}_closePannel`)
+      let input = document.querySelector(`#${this.id}_pannelInput`)
+      let textarea = document.querySelector(`#${this.id}_pannelTextarea`)
+      let submit = document.querySelector(`#${this.id}_pannelSubmit`)
       close.addEventListener('click', e => {
         e.stopPropagation()
         pannel.style.display = 'none'
@@ -48,16 +48,19 @@ export const insertCode = {
       let input = document.createElement('input')
       let textarea = document.createElement('textarea')
       let submit = document.createElement('button')
-      pannel.id = 'codePannel'
-      close.id = 'closePannel'
-      input.id = 'pannelInput'
-      textarea.id = 'pannelTextarea'
+      pannel.id = this.id + '_codePannel'
+      close.id = this.id + '_closePannel'
+      input.id = this.id + '_pannelInput'
+      input.className = 'pannelInput'
+      textarea.id = this.id + '_pannelTextarea'
+      textarea.className = 'pannelTextarea'
       input.setAttribute('placeholder', 'className')
       textarea.setAttribute('placeholder', 'code')
-      submit.id = 'pannelSubmit'
+      submit.id = this.id + '_pannelSubmit'
+      submit.className = 'pannelSubmit'
       submit.innerText = '插入'
       h2.innerText = '插入带类名的代码：'
-      close.className = 'w-e-icon-close w-e-panel-close'
+      close.className = 'w-e-icon-close w-e-panel-close closePannel'
       pannel.appendChild(close)
       pannel.appendChild(h2)
       pannel.appendChild(input)
