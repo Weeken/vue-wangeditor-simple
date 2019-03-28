@@ -1,6 +1,6 @@
 {
   "name": "vue-wangeditor-simple",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "A vue plugin base on wangeditor 3.0",
   "main": "dist/vue-wangeditor-simple.js",
   "author": "Weeken Gao",
@@ -11,7 +11,8 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.5.11"
+    "vue": "^2.5.11",
+    "wangeditor": "^3.1.1"
   },
   "browserslist": [
     "> 1%",
